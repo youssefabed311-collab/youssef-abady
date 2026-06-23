@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youssef Abady — Media Buyer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f7f6f3; --bg-card: #ffffff; --bg-dark: #111210;
+    --ink: #111210; --ink-2: #3d3d3a; --ink-3: #7a7a75; --ink-4: #b0b0a8;
+    --border: #e2e1dc; --border-dark: #d0cfc8;
+    --accent: #1a5cff; --accent-light: #e8effe; --success: #0e9e6e;
+    --font-ar: 'IBM Plex Sans Arabic', sans-serif;
+    --font-en: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.05);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-ar); font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 64px;
+    background: rgba(247,246,243,0.93); border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .nav-logo { font-family: var(--font-en); font-size: 14px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+  .nav-logo-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; display: inline-block; }
+  .nav-links { display: flex; gap: 0; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--ink-3); padding: 6px 14px; border-radius: 20px; transition: all 0.18s; font-weight: 500; }
+  .nav-links a:hover { color: var(--ink); background: var(--border); }
+  .nav-cta { background: var(--ink) !important; color: #fff !important; }
+  .nav-cta:hover { background: var(--accent) !important; }
+  .hero { min-height: 100vh; padding: 120px 2.5rem 6rem; display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.5rem; font-family: var(--font-en); letter-spacing: 0.03em; text-transform: uppercase; }
+  .hero-eyebrow span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; display: inline-block; }
+  .hero-name { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 1.25rem; }
+  .hero-name em { font-style: normal; color: var(--accent); }
+  .hero-sub { font-size: 1.05rem; color: var(--ink-2); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.75; }
+  .hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: #fff; font-family: var(--font-ar); font-weight: 600; font-size: 14px; padding: 13px 24px; border-radius: 8px; transition: all 0.2s; }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink-2); font-weight: 500; font-size: 14px; padding: 13px 20px; border-radius: 8px; border: 1px solid var(--border-dark); transition: all 0.2s; }
+  .btn-secondary:hover { border-color: var(--ink-3); color: var(--ink); }
+  .hero-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 1.25rem; }
+  .hero-card-header { display: flex; align-items: center; gap: 12px; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+  .avatar { width: 46px; height: 46px; background: var(--bg-dark); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: var(--font-en); font-weight: 700; font-size: 15px; color: #fff; flex-shrink: 0; }
+  .hero-card-name { font-weight: 700; font-size: 15px; }
+  .hero-card-role { font-size: 12px; color: var(--ink-3); margin-top: 1px; font-family: var(--font-en); }
+  .hero-stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border-radius: 10px; overflow: hidden; }
+  .h-stat { background: var(--bg-card); padding: 1rem 0.75rem; text-align: center; }
+  .h-stat-num { font-family: var(--font-en); font-size: 1.5rem; font-weight: 700; color: var(--ink); line-height: 1; letter-spacing: -0.02em; }
+  .h-stat-num.accent { color: var(--accent); }
+  .h-stat-lbl { font-size: 11px; color: var(--ink-3); margin-top: 4px; }
+  .platform-pills { display: flex; flex-direction: column; gap: 8px; }
+  .platform-pill { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); }
+  .platform-pill-left { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
+  .platform-pill-icon { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .pill-meta { background: #e7f0ff; } .pill-tiktok { background: #f0f0f0; } .pill-snap { background: #fffbe0; }
+  .pill-google { background: #e8f5e9; } .pill-linkedin { background: #e1f0fa; }
+  .platform-pill-badge { font-family: var(--font-en); font-size: 10px; font-weight: 600; color: var(--success); background: #e6f8f2; padding: 3px 8px; border-radius: 20px; }
+  .platform-pill-badge.new { color: #b45309; background: #fef3c7; }
+  .hero-card-footer { display: flex; align-items: center; gap: 8px; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 12px; color: var(--ink-3); }
+  .avail-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 3px #e6f8f2; }
+  .page-border { border-bottom: 1px solid var(--border); }
+  .section-wrap { max-width: 1200px; margin: 0 auto; padding: 5rem 2.5rem; }
+  .section-eyebrow { font-family: var(--font-en); font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .section-title { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; line-height: 1.2; }
+  .section-sub { font-size: 15px; color: var(--ink-3); margin-bottom: 3rem; }
+  .platforms-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .plat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.75rem; transition: all 0.2s; box-shadow: var(--shadow-sm); position: relative; }
+  .plat-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: var(--border-dark); }
+  .plat-icon-wrap { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 1.25rem; }
+  .plat-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+  .plat-card p { font-size: 13px; color: var(--ink-3); margin-bottom: 1.25rem; line-height: 1.6; }
+  .plat-years { font-family: var(--font-en); font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-light); padding: 4px 10px; border-radius: 20px; display: inline-flex; }
+  .plat-new-badge { position: absolute; top: 1.25rem; left: 1.25rem; font-family: var(--font-en); font-size: 10px; font-weight: 700; color: #b45309; background: #fef3c7; border: 1px solid #fde68a; padding: 3px 9px; border-radius: 20px; }
+  .cases-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .case-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow 0.2s, border-color 0.2s; }
+  .case-card:hover { box-shadow: var(--shadow); border-color: var(--border-dark); }
+  .case-top { padding: 1.75rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; border-bottom: 1px solid var(--border); }
+  .case-num { font-family: var(--font-en); font-size: 11px; font-weight: 600; color: var(--ink-4); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+  .case-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .case-desc { font-size: 13.5px; color: var(--ink-3); line-height: 1.6; }
+  .case-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+  .badge-plat { font-family: var(--font-en); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border-dark); color: var(--ink-2); white-space: nowrap; }
+  .case-body { padding: 1.75rem 2rem; }
+  .metrics-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1px; background: var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 1.5rem; }
+  .m-box { background: var(--bg-card); padding: 1.1rem 1rem; }
+  .m-was { font-family: var(--font-en); font-size: 10.5px; color: var(--ink-4); margin-bottom: 2px; }
+  .m-now { font-family: var(--font-en); font-size: 1.5rem; font-weight: 700; color: var(--accent); line-height: 1; letter-spacing: -0.02em; }
+  .m-lbl { font-size: 11px; color: var(--ink-3); margin-top: 3px; }
+  .case-story { font-size: 14px; color: var(--ink-2); line-height: 1.8; margin-bottom: 1.25rem; }
+  .case-story strong { color: var(--ink); font-weight: 600; }
+  .tags-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 12px; color: var(--ink-3); background: var(--bg); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; font-family: var(--font-en); }
+  .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { font-size: 15px; color: var(--ink-2); line-height: 1.85; margin-bottom: 1rem; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-text strong { color: var(--ink); font-weight: 700; }
+  .skills-stack { display: flex; flex-direction: column; gap: 14px; }
+  .skill-top { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+  .skill-pct { font-family: var(--font-en); color: var(--ink-3); font-weight: 400; }
+  .skill-track { height: 5px; background: var(--border); border-radius: 10px; overflow: hidden; }
+  .skill-fill { height: 100%; background: var(--accent); border-radius: 10px; }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .contact-headline { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 1.5rem; }
+  .contact-headline em { font-style: normal; color: var(--accent); }
+  .contact-tagline { font-size: 15px; color: var(--ink-3); margin-bottom: 2rem; line-height: 1.7; }
+  .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+  .contact-card-header { background: var(--bg-dark); color: #fff; padding: 1.5rem 1.75rem; }
+  .contact-card-header p { font-size: 11px; color: rgba(255,255,255,0.45); margin-bottom: 4px; font-family: var(--font-en); text-transform: uppercase; letter-spacing: 0.08em; }
+  .contact-card-header h3 { font-size: 1.05rem; font-weight: 700; }
+  .c-row { display: flex; align-items: center; gap: 14px; padding: 1rem 1.75rem; border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  .c-row:last-child { border-bottom: none; }
+  .c-row:hover { background: var(--bg); }
+  .c-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .c-label { font-size: 11px; color: var(--ink-4); margin-bottom: 2px; }
+  .c-val { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 1.75rem 2.5rem; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--ink-4); }
+  .footer-inner span:first-child { font-weight: 500; color: var(--ink-3); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-left > * { animation: fadeUp 0.6s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.35s; }
+  .hero-card { animation: fadeUp 0.7s 0.3s ease both; }
+  @media (max-width: 900px) {
+    nav { padding: 0 1.25rem; } .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 1.5rem 4rem; } .hero-card { display: none; }
+    .section-wrap { padding: 3.5rem 1.5rem; }
+    .platforms-row { grid-template-columns: 1fr; }
+    .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .case-top { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span class="nav-logo-dot"></span>Youssef Abady</div>
+  <ul class="nav-links">
+    <li><a href="#platforms">المنصات</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#about">عني</a></li>
+    <li><a href="#contact" class="nav-cta">تواصل معي</a></li>
+  </ul>
+</nav>
+
+<div class="page-border">
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span></span> Media Buyer · Performance Marketing</div>
+    <h1 class="hero-name">Youssef<br><em>Abady</em></h1>
+    <p class="hero-sub">Media Buyer متخصص في حملات الأداء على Meta وSnapchat وTikTok وGoogle وLinkedIn. بحوّل الميزانيات الإعلانية لنتائج حقيقية وأرقام قابلة للقياس.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">تواصل معي <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+      <a href="#cases" class="btn-secondary">Case Studies</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-card-header">
+      <div class="avatar">YA</div>
+      <div><div class="hero-card-name">Youssef Abady</div><div class="hero-card-role">Senior Media Buyer</div></div>
+    </div>
+    <div class="hero-stats-grid">
+      <div class="h-stat"><div class="h-stat-num">4+</div><div class="h-stat-lbl">سنين خبرة</div></div>
+      <div class="h-stat"><div class="h-stat-num accent">7x</div><div class="h-stat-lbl">أعلى ROAS</div></div>
+      <div class="h-stat"><div class="h-stat-num">5</div><div class="h-stat-lbl">منصات</div></div>
+    </div>
+    <div class="platform-pills">
+      <div class="platform-pill"><div class="platform-pill-left"><div class="platform-pill-icon pill-meta">📘</div>Meta Ads</div></div>
+      <div class="platform-pill"><div class="platform-pill-left"><div class="platform-pill-icon pill-tiktok">🎵</div>TikTok Ads</div></div>
+      <div class="platform-pill"><div class="platform-pill-left"><div class="platform-pill-icon pill-snap">👻</div>Snapchat Ads</div></div>
+      <div class="platform-pill"><div class="platform-pill-left"><div class="platform-pill-icon pill-google">🔵</div>Google Ads</div></div>
+      <div class="platform-pill"><div class="platform-pill-left"><div class="platform-pill-icon pill-linkedin">💼</div>LinkedIn Ads</div></div>
+    </div>
+    <div class="hero-card-footer"><div class="avail-dot"></div>متاح للعمل على مشاريع جديدة</div>
+  </div>
+</div>
+</div>
+
+<div class="page-border" id="platforms">
+<div class="section-wrap">
+  <div class="section-eyebrow">الخبرة</div>
+  <h2 class="section-title">المنصات اللي بشتغل عليها</h2>
+  <p class="section-sub">خبرة عملية على أهم منصات الإعلانات المدفوعة في المنطقة</p>
+  <div class="platforms-row">
+    <div class="plat-card">
+      <div class="plat-icon-wrap" style="background:#e7f0ff;">📘</div>
+      <h3>Meta Ads</h3>
+      <p>Facebook & Instagram — E-commerce, Lead Gen, App Install</p>
+
+    </div>
+    <div class="plat-card">
+      <div class="plat-icon-wrap" style="background:#fffbe0;">👻</div>
+      <h3>Snapchat Ads</h3>
+      <p>Story & Dynamic Ads — الجمهور الخليجي والعربي</p>
+
+    </div>
+    <div class="plat-card">
+      <div class="plat-icon-wrap" style="background:#f0f0f0;">🎵</div>
+      <h3>TikTok Ads</h3>
+      <p>In-Feed & Spark Ads — جيل Z وزيادة التسجيلات</p>
+
+    </div>
+    <div class="plat-card">
+      <div class="plat-icon-wrap" style="background:#e8f5e9;">🔵</div>
+      <h3>Google Ads</h3>
+      <p>Search, Display, Performance Max & YouTube — استهداف النية الشرائية وتحقيق أعلى ROI</p>
+    </div>
+    <div class="plat-card">
+      <div class="plat-icon-wrap" style="background:#e1f0fa;">💼</div>
+      <h3>LinkedIn Ads</h3>
+      <p>Sponsored Content, Lead Gen Forms & InMail — استهداف صُنّاع القرار و B2B بدقة عالية</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="page-border" id="cases">
+<div class="section-wrap">
+  <div class="section-eyebrow">الأعمال</div>
+  <h2 class="section-title">Case Studies</h2>
+  <p class="section-sub">نتائج حقيقية من حملات أدرتها على عملاء متنوعين</p>
+  <div class="cases-list">
+    <div class="case-card">
+      <div class="case-top">
+        <div>
+          <div class="case-num">Case Study 01</div>
+          <h3 class="case-title">متجر ملابس — مضاعفة المبيعات في 60 يوم</h3>
+          <p class="case-desc">متجر إلكتروني محلي كان يعاني من ارتفاع تكلفة الاكتساب وتدني معدل التحويل على Meta</p>
+        </div>
+        <div class="case-badges"><span class="badge-plat">Meta Ads</span><span class="badge-plat">E-commerce</span></div>
+      </div>
+      <div class="case-body">
+        <div class="metrics-strip">
+          <div class="m-box"><div class="m-was">كان: 1.2x</div><div class="m-now">7x</div><div class="m-lbl">ROAS</div></div>
+          <div class="m-box"><div class="m-was">كان: 85 ج.م</div><div class="m-now">22 ج.م</div><div class="m-lbl">CPA</div></div>
+          <div class="m-box"><div class="m-was">كان: 0.8%</div><div class="m-now">3.4%</div><div class="m-lbl">CTR</div></div>
+          <div class="m-box"><div class="m-was">كان: 15K</div><div class="m-now">48K</div><div class="m-lbl">الإيراد الشهري</div></div>
+        </div>
+        
+<p class="case-story">
+<strong>التحدي:</strong>
+كان المتجر الإلكتروني يواجه تحديات في زيادة المبيعات والوصول إلى عملاء جدد، مع ارتفاع تكلفة الحصول على العميل وعدم استغلال الحملات الإعلانية بالشكل الأمثل. كما كان هناك حاجة لتحسين عرض المنتجات وإبراز مميزاتها بطريقة تساعد العملاء على اتخاذ قرار الشراء وزيادة معدل التحويل.
+
+<br><br>
+
+<strong>الاستراتيجية:</strong>
+تم بناء خطة إعلانية متكاملة عبر Meta Ads مع تقسيم الحملات حسب مراحل العميل بداية من الوصول والتفاعل وحتى إعادة الاستهداف. تم اختبار أكثر من نوع من المحتوى الإعلاني والصور والفيديوهات، مع تحسين الجمهور المستهدف واستخدام حملات التحويل Conversion Campaigns لزيادة عمليات الشراء داخل المتجر الإلكتروني. كما تم متابعة البيانات بشكل مستمر لتحسين الأداء وتقليل تكلفة الشراء.
+
+<br><br>
+
+<strong>النتيجة:</strong>
+ساعدت الحملات في زيادة المبيعات وتحسين أداء المتجر الإلكتروني، مع خفض تكلفة اكتساب العميل ورفع كفاءة الإنفاق الإعلاني. كما ساهم تحسين الاستهداف والمحتوى الإعلاني في جذب عملاء أكثر اهتماماً وتحقيق نتائج أفضل مقارنة بالفترة السابقة.
+</p>
+
+        <div class="tags-row"><span class="tag">Retargeting</span><span class="tag">Lookalike Audiences</span><span class="tag">UGC Creatives</span><span class="tag">Campaign Budget Optimization</span></div>
+      </div>
+    </div>
+    <div class="case-card">
+      <div class="case-top">
+        <div>
+          <div class="case-num">Case Study 02</div>
+          <h3 class="case-title">أكاديمية أونلاين — تضاعف التسجيلات بـ TikTok</h3>
+          <p class="case-desc">أكاديمية تعليمية أرادت الوصول لجيل Z وزيادة التسجيلات بتكلفة أقل من Meta</p>
+        </div>
+        <div class="case-badges"><span class="badge-plat">TikTok Ads</span><span class="badge-plat">Lead Generation</span></div>
+      </div>
+      <div class="case-body">
+        <div class="metrics-strip">
+          <div class="m-box"><div class="m-was">هدف: 500</div><div class="m-now">1,240</div><div class="m-lbl">Lead شهرياً</div></div>
+          <div class="m-box"><div class="m-was">Meta: 45 ج.م</div><div class="m-now">18 ج.م</div><div class="m-lbl">CPL على TikTok</div></div>
+          <div class="m-box"><div class="m-was">كان: 2.1%</div><div class="m-now">5.8%</div><div class="m-lbl">Conversion Rate</div></div>
+        </div>
+        <p class="case-story"><strong>التحدي:</strong> الأكاديمية كانت تعتمد بالكامل على Meta وتكاليف الـ leads كانت مرتفعة، مع صعوبة الوصول للشريحة العمرية 18–25.<br><br><strong>الاستراتيجية:</strong> أنشأت حملات TikTok In-Feed بـ native-style videos تحاكي المحتوى العضوي. استخدمت Spark Ads لتضخيم أفضل الفيديوهات الـ organic. ركزت على Hook قوي في أول 3 ثواني.<br><br><strong>النتيجة:</strong> تجاوزنا الهدف بـ 148%، وتكلفة الـ lead انخفضت بنسبة 60% مقارنة بـ Meta.</p>
+        <div class="tags-row"><span class="tag">Spark Ads</span><span class="tag">Native Video</span><span class="tag">Lead Gen Forms</span><span class="tag">A/B Testing</span></div>
+      </div>
+    </div>
+    
+<div class="case-card">
+      <div class="case-top">
+        <div>
+          <div class="case-num">Case Study 03</div>
+          <h3 class="case-title">مصنع خزف وفخار سعودي — زيادة الطلبات والمبيعات</h3>
+          <p class="case-desc">مصنع خزف وفخار في السعودية أراد توسيع قاعدة العملاء وزيادة الطلبات من الأفراد والمتاجر.</p>
+        </div>
+        <div class="case-badges"><span class="badge-plat">Snapchat Ads</span><span class="badge-plat">TikTok Ads</span></div>
+      </div>
+      <div class="case-body">
+        <div class="metrics-strip">
+          <div class="m-box"><div class="m-was">كان: 180 ر.س</div><div class="m-now">65 ر.س</div><div class="m-lbl">Cost per Lead</div></div>
+          <div class="m-box"><div class="m-was">كان: 45</div><div class="m-now">170</div><div class="m-lbl">طلب شهرياً</div></div>
+          <div class="m-box"><div class="m-was">كان: 1.8x</div><div class="m-now">5.4x</div><div class="m-lbl">ROAS</div></div>
+        </div>
+        <p class="case-story"><strong>التحدي:</strong> المصنع كان يعتمد بشكل كبير على العملاء الحاليين فقط، وكان يحتاج إلى الوصول لشريحة أكبر من العملاء داخل السوق السعودي وزيادة الطلبات بشكل مستمر. كما كان التحدي هو تقديم المنتجات بشكل جذاب يوضح جودة الخزف والفخار والتفاصيل اليدوية التي تميز كل قطعة عن غيرها.
+
+<br><br>
+
+<strong>الاستراتيجية:</strong> تم إطلاق حملات إعلانية على Snapchat وTikTok تعتمد على فيديوهات قصيرة تعرض مراحل تصنيع المنتجات، تفاصيل الجودة، واستخدام المنتجات بشكل واقعي لجذب اهتمام العملاء. تم اختبار عدة أفكار إبداعية وتقسيم الجمهور حسب الاهتمامات، بالإضافة إلى استخدام إعادة الاستهداف للأشخاص الذين تفاعلوا مع المحتوى أو زاروا صفحات المنتجات لزيادة فرص التحويل والشراء.
+
+<br><br>
+
+<strong>النتيجة:</strong> ساعدت الحملات في زيادة الوصول إلى عملاء جدد وتحسين عدد الطلبات، مع رفع كفاءة الإنفاق الإعلاني وتحقيق نتائج أفضل من خلال الجمع بين المحتوى الجذاب والاستهداف الصحيح. كما أصبح للعلامة التجارية حضور أقوى داخل السوق وزادت فرص النمو من خلال القنوات الرقمية.</p>
+        <div class="tags-row"><span class="tag">Snapchat Ads</span><span class="tag">TikTok Ads</span><span class="tag">Video Creatives</span><span class="tag">Retargeting</span><span class="tag">Saudi Market</span></div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-top">
+        <div>
+          <div class="case-num">Case Study 04</div>
+          <h3 class="case-title">شركة عقارات — جلب عملاء مؤهلين بتكلفة منخفضة</h3>
+          <p class="case-desc">شركة عقارات أرادت زيادة عدد العملاء المهتمين بالشراء وتقليل وقت فريق المبيعات على leads غير جادة</p>
+        </div>
+        <div class="case-badges"><span class="badge-plat">Meta Ads</span><span class="badge-plat">Real Estate</span></div>
+      </div>
+      <div class="case-body">
+        <div class="metrics-strip">
+          <div class="m-box"><div class="m-was">كان: 320 ج.م</div><div class="m-now">95 ج.م</div><div class="m-lbl">Cost per Lead</div></div>
+          <div class="m-box"><div class="m-was">كان: 12%</div><div class="m-now">38%</div><div class="m-lbl">Lead Quality Rate</div></div>
+          <div class="m-box"><div class="m-was">كان: 40</div><div class="m-now">180</div><div class="m-lbl">Lead مؤهل / شهر</div></div>
+          <div class="m-box"><div class="m-was">كان: 3</div><div class="m-now">11</div><div class="m-lbl">صفقة مُغلقة / شهر</div></div>
+        </div>
+        <p class="case-story"><strong>التحدي:</strong> كانت الشركة تستقبل leads كتير بس نسبة الجدية منخفضة جداً، وفريق المبيعات بيضيع وقته في متابعة أشخاص مش مهتمين فعلاً بالشراء.<br><br><strong>الاستراتيجية:</strong> بنيت funnel من مرحلتين — Awareness بـ video ads تشرح المشاريع، ثم Lead Gen forms بأسئلة pre-qualify تصفّي غير الجادين. استخدمت Custom Audience من زوار الموقع وRetargeting للمهتمين. خصصت الـ creatives لكل نوع عقار (سكني / تجاري).<br><br><strong>النتيجة:</strong> تكلفة الـ lead انخفضت 70%، ونسبة الـ leads الجادة ارتفعت من 12% لـ 38%، والصفقات المُغلقة تضاعفت تقريباً 4 مرات.</p>
+        <div class="tags-row"><span class="tag">Real Estate Lead Gen</span><span class="tag">Pre-qualify Forms</span><span class="tag">Video Funnel</span><span class="tag">Retargeting</span><span class="tag">Custom Audiences</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="page-border" id="about">
+<div class="section-wrap">
+  <div class="section-eyebrow">عني</div>
+  <h2 class="section-title">من أنا</h2>
+  <div class="about-layout">
+    <div class="about-text">
+      <p>أنا Media Buyer , Youssef Abady بخبرة أكتر من <strong>4 سنين</strong> في إدارة حملات الأداء على منصات Meta وSnapchat وTikTok وGoogle وLinkedIn.</p>
+      <p>بشتغل مع brands ومتاجر إلكترونية وتطبيقات موبايل وشركات B2B، وبساعدهم يحولوا ميزانياتهم الإعلانية لنتائج حقيقية وقابلة للقياس. أعلى ROAS حققته كان <strong>7x</strong> على حملة e-commerce.</p>
+      <p>أؤمن إن الـ data هي أساس كل قرار، والـ creative هو الـ differentiator الحقيقي في عالم الـ paid media.</p>
+    </div>
+    <div class="skills-stack">
+      <div><div class="skill-top"><span>Media Buying Strategy</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill" style="width:95%"></div></div></div>
+      <div><div class="skill-top"><span>Meta Ads</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill" style="width:95%"></div></div></div>
+      <div><div class="skill-top"><span>TikTok Ads</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div><div class="skill-top"><span>Snapchat Ads</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div><div class="skill-top"><span>Google Ads</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-fill" style="width:78%"></div></div></div>
+      <div><div class="skill-top"><span>LinkedIn Ads</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div><div class="skill-top"><span>Creative Strategy</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div><div class="skill-top"><span>Analytics & Reporting</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" style="width:90%"></div></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="page-border" id="contact">
+<div class="section-wrap">
+  <div class="contact-layout">
+    <div>
+      <div class="section-eyebrow">تواصل</div>
+      <h2 class="contact-headline">خليني أشيل<br><em>ميزانيتك</em></h2>
+      <p class="contact-tagline">عايز تشتغل معي أو تعرف أكتر عن خدماتي؟ تواصل معي وهرد عليك في أقل من 24 ساعة.</p>
+      <a href="https://wa.me/201066901519" target="_blank" class="btn-primary">ابدأ دلوقتي <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-header">
+        <p>معلومات التواصل</p>
+        <h3>Youssef Abady — Media Buyer</h3>
+      </div>
+      <div>
+        <div class="c-row"><div class="c-icon">📱</div><div><div class="c-label">واتساب / اتصال</div><div class="c-val" dir="ltr"><a href="https://wa.me/201066901519" target="_blank" style="color:var(--accent);">01066901519</a></div></div></div>
+        <div class="c-row"><div class="c-icon">📊</div><div><div class="c-label">التخصص</div><div class="c-val">Performance Marketing — Meta, TikTok, Snapchat, Google, LinkedIn</div></div></div>
+        <div class="c-row"><div class="c-icon">⚡</div><div><div class="c-label">الاستجابة</div><div class="c-val">رد خلال 24 ساعة</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+<div class="footer-inner">
+  <span>© 2025 Youssef Abady</span>
+  <span style="font-family:'DM Sans',sans-serif;font-size:12px;">Media Buyer · Performance Marketing</span>
+</div>
+</footer>
+
+</body>
+</html>
